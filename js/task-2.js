@@ -27,3 +27,18 @@ const images = [
     alt: 'Zebras on Zebra',
   },
 ];
+
+
+const imageList = document.querySelector('.gallery');
+function createImageItem(obj) {
+  const url = obj.url;
+  const alt = obj.alt;
+  return `<li class="image-card"><img src="${url}" alt="${alt}" /></li>`;
+}
+
+function createGalleryMarkup() {
+  const markup = images.map(createImageItem).join('');
+  imageList.insertAdjacentHTML('afterbegin', markup);
+}
+
+createGalleryMarkup();
